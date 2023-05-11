@@ -1,49 +1,73 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { Dropdown } from "antd";
-const Header1L = styled.div`
-  height: 42px;
-  position: relative;
-  z-index: 10;
-  max-width: 100%;
-  background: #ffffff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03),
-    0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
-`;
-
-const Header2L = styled.div`
-  height: 114px;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Header3L = styled.div`
-  height: 58px;
-  background: #00b4db; /* fallback for old browsers */
-
-  background: linear-gradient(to left, #9cecfb, #65c7f7, #0052d4);
-`;
+import { Dropdown, MenuProps } from "antd";
 
 export const PortalHeader = () => {
+  const aboutItem: MenuProps["items"] = [
+    {
+      label: (
+        <Link className="NavLink" href={"/about"}>
+          公司简介
+        </Link>
+      ),
+      key: "0",
+    },
+  ];
+  const supplyItem: MenuProps["items"] = [
+    {
+      label: (
+        <Link className="NavLink" href={"/supply"}>
+          产品中心11111
+        </Link>
+      ),
+      key: "0",
+    },
+  ];
   return (
     <header className=" h-[212px]">
-      <Header1L></Header1L>
-      <Header2L>
-        <div>logo</div>
-        <div>电话</div>
-      </Header2L>
-      <Header3L>
-        <Dropdown menu={{ items: [] }}>
-          <Link href={"/"}>网站首页</Link>
-        </Dropdown>
-        <Dropdown menu={{ items: [] }}>
-          <Link href={"/"}>关于我们</Link>
-        </Dropdown>
-      </Header3L>
+      <div className="Header1L"></div>
+      <div className="Header2L">
+        <div>阿柯logo</div>
+        <div>阿柯电话</div>
+      </div>
+      <div className="Header3L">
+        <div className="Header3L-Inner">
+          <Link className="NavLink" href={"/"}>
+            网站首页
+          </Link>
+          <Dropdown
+            menu={{
+              items: aboutItem,
+            }}
+          >
+            <Link className="NavLink" href={"/about"}>
+              关于我们
+            </Link>
+          </Dropdown>
+          <Dropdown
+            menu={{
+              items: supplyItem,
+            }}
+          >
+            <Link className="NavLink" href={"/about"}>
+              产品中心
+            </Link>
+          </Dropdown>
+          <Link className="NavLink" href={"/about"}>
+            工程案例
+          </Link>
+          <Link className="NavLink" href={"/news"}>
+            新闻中心
+          </Link>
+          <Link className="NavLink" href={"/honor"}>
+            企业资质
+          </Link>
+          <Link className="NavLink" href={"/contact"}>
+            联系我们
+          </Link>
+        </div>
+      </div>
     </header>
   );
 };
