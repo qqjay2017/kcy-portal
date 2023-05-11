@@ -1,35 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { Dropdown } from "antd";
 import type { MenuProps } from "antd";
+import Image from "next/image";
+import dayjs from "dayjs";
 
 export const PortalHeader = () => {
+  const [curTime, setCurTime] = useState(new Date().valueOf());
   const aboutItem: MenuProps["items"] = [
     {
-      label: (
-        <Link className="NavLink" href={"/about"}>
-          公司简介
-        </Link>
-      ),
+      label: <Link href={"/about"}>公司简介</Link>,
       key: "0",
     },
   ];
   const supplyItem: MenuProps["items"] = [
     {
-      label: (
-        <Link className="NavLink" href={"/supply"}>
-          产品中心11111
-        </Link>
-      ),
+      label: <Link href={"/supply"}>产品中心11111</Link>,
       key: "0",
     },
   ];
+  const upDateCurTime = () => {
+    setCurTime(new Date().valueOf());
+    setTimeout(() => {
+      upDateCurTime();
+    }, 1000);
+  };
+  useEffect(() => {
+    upDateCurTime();
+    return () => {
+      console.log(123);
+    };
+  }, []);
   return (
     <header className=" h-[212px]">
-      <div className="Header1L"></div>
+      <div className="Header1L ">
+        <div className="flex-1">
+          {dayjs(curTime).format("YYYY-MM-DD HH:mm:ss")}
+        </div>
+      </div>
       <div className="Header2L">
-        <div>阿柯logo</div>
+        <div>
+          <Image src={"/images/logo.png"} width={120} height={120} alt="" />
+        </div>
         <div>阿柯电话</div>
       </div>
       <div className="Header3L">

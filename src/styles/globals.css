@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.flex-1 {
+    flex: 1;
+}
 
 .Header1L {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    padding-right: 80px;
+
     height: 42px;
     position: relative;
     z-index: 10;

@@ -10,12 +10,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Navigation, Pagination, Autoplay } from "swiper";
-const Home: NextPage = (props) => {
+const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>公司简介-啊柯公司</title>
-        <meta name="description" content="huang" />
+        <title>陕西八闽达电力设备有限公司</title>
+        <meta
+          name="description"
+          content="陕西八闽达电力设备有限公司 八闽达电缆桥架"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-w-screen  min-h-screen flex-col items-center justify-center bg-white">
