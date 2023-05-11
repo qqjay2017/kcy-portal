@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { Navigation, Pagination, Autoplay } from "swiper";
 const Home: NextPage = (props) => {
   return (
     <>
@@ -19,8 +20,14 @@ const Home: NextPage = (props) => {
       </Head>
       <main className="min-w-screen  min-h-screen flex-col items-center justify-center bg-white">
         <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
           height={443}
-          spaceBetween={50}
+          spaceBetween={0}
+          autoplay={{
+            delay: 2500,
+          }}
+          navigation
+          pagination={{ clickable: true }}
           slidesPerView={1}
           onSwiper={(swiper) => console.log(swiper)}
         >
