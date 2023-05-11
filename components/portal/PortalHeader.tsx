@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+
 import Link from "next/link";
-import { Dropdown, MenuProps } from "antd";
+import { Dropdown } from "antd";
+import type { MenuProps } from "antd";
 
 export const PortalHeader = () => {
   const aboutItem: MenuProps["items"] = [
