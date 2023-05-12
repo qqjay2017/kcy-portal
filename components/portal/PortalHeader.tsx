@@ -20,14 +20,14 @@ export const PortalHeader = () => {
       key: "0",
     },
   ];
-  const upDateCurTime = () => {
+  const updateCurTime = () => {
     setCurTime(new Date().valueOf());
     setTimeout(() => {
-      upDateCurTime();
+      updateCurTime();
     }, 1000);
   };
   useEffect(() => {
-    upDateCurTime();
+    updateCurTime();
     return () => {
       console.log(123);
     };
